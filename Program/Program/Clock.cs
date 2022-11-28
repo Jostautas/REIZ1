@@ -9,15 +9,32 @@ public class Clock
     {
     }
 
-    public void GetInput()
+    public int GetInput()
     {
         Console.WriteLine("Valid input: 0 <= Hours <= 12 | 0 <= Minutes <= 720");
 
-        Console.WriteLine("Enter Hours:");
-        Hours = Convert.ToInt32(Console.ReadLine());
+        try
+        {
+            Console.WriteLine("Enter Hours:");
+            Hours = Convert.ToInt32(Console.ReadLine());
+            if(Hours < 0 || Hours > 12)
+            {
+                return -1;
+            }
 
-        Console.WriteLine("Enter Minutes:");
-        Minutes = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter Minutes:");
+            Minutes = Convert.ToInt32(Console.ReadLine());
+            if (Minutes < 0 || Minutes > 720)
+            {
+                return -2;
+            }
+        }
+        catch (System.FormatException)
+        {
+            Console.WriteLine("ERROR1: wrong input");
+        }
+        
+        return 1;
     }
 
     public void PrintTime()
