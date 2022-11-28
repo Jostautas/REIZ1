@@ -7,7 +7,17 @@ public class Program
         Console.WriteLine("Clock Angle App");
 
         Clock c = new();
-        c.GetInput();
+        while (true)
+        {
+            if (c.GetInput() == 1)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("ERROR2: wrong input");
+            }
+        }
         c.PrintTime();
 
         double angle = c.GetAngle();
