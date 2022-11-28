@@ -34,10 +34,12 @@ public class Clock
 
         if(angle > 180)
         {
-            angle = 360 - angle;
+            return 360 - angle;
         }
-
-        return angle;
+        else
+        {
+            return angle;
+        }
     }
 
     private int GetHourAngle()
